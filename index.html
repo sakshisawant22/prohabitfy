@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habitify</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">Habitify</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home" class="active" data-section="home">Home</a></li>
+                    <li><a href="#about" data-section="about">About us</a></li>
+                    <li><a href="#tracker" data-section="tracker">Tracker</a></li>
+                    <li><a href="#daily-plan" data-section="daily-plan">Daily Plan</a></li>
+                    <li><a href="#health-tools" data-section="health-tools">Health Tools</a></li>
+                    <li><a href="#feedback" data-section="feedback">Feedback</a></li>
+                    <li id="login-signup-btn"><a href="#" id="open-login-modal">Login / Signup</a></li>
+                    <li id="user-menu" style="display:none;">
+                        <a href="#" id="user-display"></a>
+                        <ul class="dropdown">
+                            <li><a href="#" id="logout-btn">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Home Section -->
+        <section id="home" class="hero active-section">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1>Welcome to Habitify</h1>
+                <p>Build better habits, one day at a time.</p>
+                <button class="start-tracking-btn">Start Tracking</button>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about" class="content-section">
+            <div class="container glass-card">
+                <h2>About Us</h2>
+                <p>Habitify was created to help people build small, consistent habits that lead to big life changes. Our mission is to make tracking simple, clean, and motivating.</p>
+                <h3>Why Habitify?</h3>
+                <ul>
+                    <li><i class="fas fa-chart-line icon"></i> <strong>Built for Growth</strong> – Habitify helps you form small, consistent habits that lead to meaningful life changes.</li>
+                    <li><i class="fas fa-brush icon"></i> <strong>Simple & Clean</strong> – A clutter-free design makes habit tracking effortless and enjoyable.</li>
+                    <li><i class="fas fa-star icon"></i> <strong>Motivation Made Easy</strong> – Stay inspired with progress tracking, streaks, and reminders.</li>
+                    <li><i class="fas fa-eye icon"></i> <strong>Clarity & Focus</strong> – Track daily, weekly, and monthly progress to see how small actions build big results.</li>
+                    <li><i class="fas fa-balance-scale icon"></i> <strong>Balance in Life</strong> – Fitness, learning, productivity, or mindfulness—Habitify adapts to your goals.</li>
+                    <li><i class="fas fa-users icon"></i> <strong>Accountability Matters</strong> – Build routines, track progress, and celebrate achievements.</li>
+                    <li><i class="fas fa-sync-alt icon"></i> <strong>Consistency is Power</strong> – Success comes from daily actions, not sudden changes.</li>
+                    <li><i class="fas fa-globe icon"></i> <strong>For Everyone</strong> – Students, professionals, and creators can all build better lives with Habitify.</li>
+                    <li><i class="fas fa-mobile-alt icon"></i> <strong>More than an App</strong> – A companion that grows with you, unlocking your full potential.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Tracker Section -->
+        <section id="tracker" class="content-section">
+            <div class="container glass-card">
+                <h2>Daily Habit Tracker</h2>
+                <div class="habit-input">
+                    <input type="text" id="new-habit-name" placeholder="New habit...">
+                    <button id="add-habit-btn" class="btn">Add</button>
+                    <select id="habit-duration">
+                        <option value="7">7 days</option>
+                        <option value="14" selected>14 days</option>
+                        <option value="30">30 days</option>
+                    </select>
+                </div>
+                <div id="habit-list">
+                    <!-- Example Habits -->
+                    <div class="habit-item">
+                        <span class="habit-name">Food</span>
+                        <div class="habit-days">
+                            <span class="day-circle completed">1</span>
+                            <span class="day-circle completed">2</span>
+                            <span class="day-circle completed">3</span>
+                            <span class="day-circle completed">4</span>
+                            <span class="day-circle completed">5</span>
+                            <span class="day-circle">6</span>
+                            <span class="day-circle">7</span>
+                            <span class="day-circle">8</span>
+                            <span class="day-circle completed">9</span>
+                            <span class="day-circle completed">10</span>
+                            <span class="day-circle completed">11</span>
+                            <span class="day-circle">12</span>
+                            <span class="day-circle">13</span>
+                            <span class="day-circle">14</span>
+                        </div>
+                        <button class="remove-habit-btn"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="habit-item">
+                        <span class="habit-name">Walk</span>
+                        <div class="habit-days">
+                            <span class="day-circle completed">1</span>
+                            <span class="day-circle completed">2</span>
+                            <span class="day-circle completed">3</span>
+                            <span class="day-circle completed">4</span>
+                            <span class="day-circle completed">5</span>
+                            <span class="day-circle">6</span>
+                            <span class="day-circle">7</span>
+                            <span class="day-circle">8</span>
+                            <span class="day-circle completed">9</span>
+                            <span class="day-circle completed">10</span>
+                            <span class="day-circle completed">11</span>
+                            <span class="day-circle completed">12</span>
+                            <span class="day-circle completed">13</span>
+                            <span class="day-circle">14</span>
+                        </div>
+                        <button class="remove-habit-btn"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="habit-item">
+                        <span class="habit-name">GYM</span>
+                        <div class="habit-days">
+                            <span class="day-circle completed">1</span>
+                            <span class="day-circle completed">2</span>
+                            <span class="day-circle completed">3</span>
+                            <span class="day-circle completed">4</span>
+                            <span class="day-circle completed">5</span>
+                            <span class="day-circle">6</span>
+                            <span class="day-circle">7</span>
+                            <span class="day-circle">8</span>
+                            <span class="day-circle completed">9</span>
+                            <span class="day-circle completed">10</span>
+                            <span class="day-circle completed">11</span>
+                            <span class="day-circle">12</span>
+                            <span class="day-circle completed">13</span>
+                            <span class="day-circle completed">14</span>
+                        </div>
+                        <button class="remove-habit-btn"><i class="fas fa-times"></i></button>
+                    </div>
+                </div>
+
+                <div class="stats-card">
+                    <h3>Stats</h3>
+                    <div class="stat-row"><span>Total</span><span>3</span></div>
+                    <div class="stat-row"><span>Today</span><span>2</span></div>
+                    <div class="stat-row"><span>Overall</span><span>69%</span></div>
+                    <div class="stat-row"><span>Longest Streak</span><span>9</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Daily Plan Section -->
+        <section id="daily-plan" class="content-section">
+            <div class="container">
+                <div class="daily-plan-header glass-card">
+                    <i class="fas fa-sun"></i> Daily Routines for Building Good Habits
+                </div>
+                <div class="daily-plan-grid">
+                    <div class="plan-card glass-card">
+                        <h3><i class="fas fa-cloud-sun"></i> Morning</h3>
+                        <ul>
+                            <li>8:00 AM <span class="activity">Run</span> <i class="fas fa-running"></i></li>
+                            <li>8:30 AM <span class="activity">Meditate</span> <i class="fas fa-spa"></i></li>
+                            <li>9:00 AM <span class="activity">Plan the day</span> <i class="fas fa-clipboard-list"></i></li>
+                            <li>9:30 AM <span class="activity">Hydrate</span> <i class="fas fa-tint"></i></li>
+                            <li>10:00 AM <span class="activity">Read</span> <i class="fas fa-book-open"></i></li>
+                        </ul>
+                    </div>
+                    <div class="plan-card glass-card">
+                        <h3><i class="fas fa-sun"></i> Noon</h3>
+                        <ul>
+                            <li>12:00 PM <span class="activity">Healthy lunch</span> <i class="fas fa-salad"></i></li>
+                            <li>2:00 PM <span class="activity">Connect with a colleague</span> <i class="fas fa-user-friends"></i></li>
+                            <li>4:00 PM <span class="activity">Express gratitude</span> <i class="fas fa-hands-praying"></i></li>
+                        </ul>
+                    </div>
+                    <div class="plan-card glass-card">
+                        <h3><i class="fas fa-moon"></i> Night</h3>
+                        <ul>
+                            <li>8:00 PM <span class="activity">Reflect</span> <i class="fas fa-lightbulb"></i></li>
+                            <li>9:00 PM <span class="activity">Wind Down</span> <i class="fas fa-cloud"></i></li>
+                            <li>9:30 PM <span class="activity">Disconnect from screens</span> <i class="fas fa-laptop-slash"></i></li>
+                            <li>10:00 PM <span class="activity">Prepare for tomorrow</span> <i class="fas fa-calendar-check"></i></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="daily-plan-footer glass-card">
+                    <i class="fas fa-star"></i> Stay consistent and build good habits daily!
+                </div>
+            </div>
+        </section>
+
+        <!-- Health Tools Section -->
+        <section id="health-tools" class="content-section">
+            <div class="container health-tools-grid">
+                <div class="tool-card glass-card">
+                    <h3>Calories Burned (Walking)</h3>
+                    <input type="number" placeholder="Distance (km)">
+                    <button class="btn">Calculate</button>
+                    <p class="result">You burned ~50 calories.</p>
+                </div>
+                <div class="tool-card glass-card">
+                    <h3>BMI Calculator</h3>
+                    <input type="number" placeholder="Weight (kg)">
+                    <input type="number" placeholder="Height (cm)">
+                    <button class="btn">Calculate</button>
+                    <p class="result"></p>
+                </div>
+                <div class="tool-card glass-card">
+                    <h3>Daily Water Intake</h3>
+                    <input type="number" placeholder="Weight (kg)">
+                    <button class="btn">Calculate</button>
+                    <p class="result"></p>
+                </div>
+                <div class="tool-card glass-card">
+                    <h3>BMR Calculator</h3>
+                    <input type="number" placeholder="Weight (kg)">
+                    <input type="number" placeholder="Height (cm)">
+                    <input type="number" placeholder="Age (years)">
+                    <select>
+                        <option>Male</option>
+                        <option>Female</option>
+                    </select>
+                    <button class="btn">Calculate</button>
+                    <p class="result"></p>
+                </div>
+                <div class="tool-card glass-card">
+                    <h3>Ideal Weight Range</h3>
+                    <input type="number" placeholder="Height (cm)">
+                    <button class="btn">Calculate</button>
+                    <p class="result"></p>
+                </div>
+                <div class="tool-card glass-card">
+                    <h3>Body Fat %</h3>
+                    <input type="number" placeholder="Waist (cm)">
+                    <input type="number" placeholder="Neck (cm)">
+                    <input type="number" placeholder="Height (cm)">
+                    <button class="btn">Calculate</button>
+                    <p class="result"></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feedback Section -->
+        <section id="feedback" class="content-section">
+            <div class="feedback-background"></div>
+            <div class="container glass-card feedback-card">
+                <h2>Feedback</h2>
+                <p>We'd love to hear from you. Please share your thoughts below:</p>
+                <form>
+                    <input type="text" placeholder="Your name">
+                    <input type="email" placeholder="Your email">
+                    <textarea rows="5" placeholder="Your feedback"></textarea>
+                    <button class="btn submit-feedback-btn">Send Feedback</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Login/Signup Modal -->
+    <div id="auth-modal" class="modal">
+        <div class="modal-content glass-card">
+            <span class="close-btn">&times;</span>
+            <div class="auth-tabs">
+                <button id="login-tab" class="active">Login</button>
+                <button id="signup-tab">Signup</button>
+            </div>
+
+            <div id="login-form-container" class="form-container active">
+                <h3>Login</h3>
+                <form id="login-form">
+                    <input type="text" id="login-username" placeholder="Username" required>
+                    <input type="password" id="login-password" placeholder="Password" required>
+                    <button type="submit" class="btn">Login</button>
+                    <p id="login-error" class="error-message"></p>
+                </form>
+            </div>
+
+            <div id="signup-form-container" class="form-container">
+                <h3>Signup</h3>
+                <form id="signup-form">
+                    <input type="text" id="signup-username" placeholder="Username" required>
+                    <input type="email" id="signup-email" placeholder="Email" required>
+                    <input type="password" id="signup-password" placeholder="Password" required>
+                    <input type="password" id="signup-confirm-password" placeholder="Confirm Password" required>
+                    <button type="submit" class="btn">Signup</button>
+                    <p id="signup-error" class="error-message"></p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

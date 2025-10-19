@@ -1,0 +1,825 @@
+/* General Body and Typography */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7f6;
+    color: #333;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1, h2, h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+p {
+    margin-bottom: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Glassmorphism Effect */
+.glass-card {
+    background: rgba(255, 255, 255, 0.2); /* Slightly visible background */
+    backdrop-filter: blur(10px);          /* The magic blur */
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Light border */
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Header & Navigation */
+header {
+    background-color: #0d1117; /* Dark background from example */
+    color: #fff;
+    padding: 15px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 700;
+    color: #fff;
+}
+
+nav ul {
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    color: #ccc;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 5px 0;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+nav a:hover,
+nav a.active {
+    color: #fff;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0;
+    height: 2px;
+    background-color: #ffc107; /* Highlight color */
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after,
+nav a.active::after {
+    width: 100%;
+}
+
+/* User Menu Dropdown */
+#user-menu {
+    position: relative;
+    cursor: pointer;
+}
+
+#user-menu:hover .dropdown {
+    display: block;
+}
+
+#user-display {
+    color: #ffc107; /* Highlight for logged-in user */
+    font-weight: 600;
+    padding-right: 20px; /* Space for potential arrow icon */
+    position: relative;
+}
+/* Optional: Add a dropdown arrow icon */
+#user-display::after {
+    content: '\f0d7'; /* Font Awesome chevron-down */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 12px;
+}
+
+
+#user-menu .dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: rgba(13, 17, 23, 0.9); /* Darker semi-transparent */
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    min-width: 120px;
+    z-index: 1001;
+    padding: 10px 0;
+}
+
+#user-menu .dropdown li {
+    padding: 0;
+}
+
+#user-menu .dropdown a {
+    display: block;
+    padding: 8px 15px;
+    color: #ccc;
+    font-weight: 400;
+    white-space: nowrap;
+}
+
+#user-menu .dropdown a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffc107;
+}
+
+#user-menu .dropdown a::after {
+    content: none; /* Remove underline from dropdown links */
+}
+
+
+/* Main Content Sections */
+.content-section {
+    padding: 60px 0;
+    min-height: calc(100vh - 80px); /* Adjust based on header height */
+    display: none; /* Hidden by default, shown by JS */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #000000;
+    position: relative;
+}
+
+.content-section .container {
+    padding: 40px;
+}
+
+/* Section Backgrounds - Inspired by images */
+#about { background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1470'); color: #333; }
+#tracker { background-image: url('https://images.unsplash.com/photo-1511497584788-876760111969?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1632'); color: #333; }
+#daily-plan { background-image: url('https://images.unsplash.com/photo-1666201922673-2cf30e8cdc7d?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1470'); color: #000000; }
+#health-tools { background-image: url('https://images.unsplash.com/photo-1732597037598-bdee2c887692?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1470'); color: #333; }
+#feedback { background-color: #000; padding: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center; position: relative;}
+#feedback .feedback-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://images.unsplash.com/photo-1494500764479-0c8f2919a3d8?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1470'); /* Smiley face background */
+    background-size: cover;
+    background-position: center;
+    /* opacity: 3;
+    z-index: 1; */
+}
+#feedback .feedback-card {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+    color: #eee;
+}
+#feedback h2 { color: #fff; }
+
+
+.active-section {
+    display: block;
+}
+
+/* Hero Section */
+.hero {
+    height: calc(100vh - 80px); /* Full viewport height minus header */
+    background-image: url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTIyMjl8MHwxfHNlYXJjaHwyfHxzdW5zZXQlMjBmaWVsZHxlbnwwfHx8fDE2OTk1Mjg0NTF8MA&ixlib=rb-4.0.3&q=80&w=1080'); /* Sunset image */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #000000;
+    position: relative;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(5, 5, 5, 0.4); /* Dark overlay */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.hero h1 {
+    font-size: 4em;
+    margin-bottom: 10px;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero p {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+    color: #eee;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.start-tracking-btn, .btn {
+    background-color: #ffc107; /* Yellow button */
+    color: #2c3e50;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.start-tracking-btn:hover, .btn:hover {
+    background-color: #e0a800;
+    transform: translateY(-2px);
+}
+
+/* About Us Section Specifics */
+#about ul {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 15px;
+}
+
+#about ul li {
+    font-size: 1.05em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    background: rgba(255, 255, 255, 0.5); /* Lighter glass for list items */
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+#about ul li .icon {
+    color: #ffc107;
+    font-size: 1.3em;
+    width: 25px;
+    text-align: center;
+}
+
+/* Tracker Section Specifics */
+#tracker .glass-card {
+    background: rgba(255, 255, 255, 0.3); /* Slightly more opaque for content */
+}
+
+.habit-input {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+    align-items: center;
+}
+
+.habit-input input[type="text"] {
+    flex-grow: 1;
+    padding: 10px 15px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.7);
+    outline: none;
+    font-size: 1em;
+    color: #333;
+}
+
+.habit-input input[type="text"]::placeholder {
+    color: #666;
+}
+
+.habit-input select {
+    padding: 10px 15px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.7);
+    outline: none;
+    font-size: 1em;
+    color: #333;
+}
+
+.habit-item {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 10px;
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.habit-name {
+    font-weight: 600;
+    font-size: 1.1em;
+    min-width: 80px;
+}
+
+.habit-days {
+    display: flex;
+    gap: 8px;
+    margin: 0 20px;
+    flex-wrap: wrap;
+}
+
+.day-circle {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9em;
+    font-weight: 500;
+    color: #666;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.day-circle:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-color: rgba(0,0,0,0.2);
+}
+
+.day-circle.completed {
+    background-color: #28a745; /* Green for completed */
+    color: #fff;
+    border-color: #28a745;
+}
+
+.remove-habit-btn {
+    background: none;
+    border: none;
+    color: #dc3545;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin-left: auto;
+    transition: color 0.2s ease;
+}
+
+.remove-habit-btn:hover {
+    color: #c82333;
+}
+
+.stats-card {
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.stats-card h3 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.stat-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.stat-row:last-child {
+    border-bottom: none;
+}
+
+.stat-row span:first-child {
+    font-weight: 500;
+    color: #555;
+}
+.stat-row span:last-child {
+    font-weight: 600;
+    color: #333;
+}
+
+/* Daily Plan Section Specifics */
+#daily-plan {
+    color: #e40a0a;
+}
+
+#daily-plan .glass-card {
+    background: rgba(255, 255, 255, 0.15); /* Lighter glass effect */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #090909;
+}
+
+#daily-plan h2, #daily-plan h3 {
+    color: #0e0d0d;
+}
+
+.daily-plan-header, .daily-plan-footer {
+    text-align: center;
+    font-size: 1.3em;
+    font-weight: 600;
+    padding: 20px 30px;
+    margin-bottom: 20px;
+}
+
+.daily-plan-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-bottom: 25px;
+}
+
+.plan-card h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.6em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: #ffc107;
+}
+
+.plan-card h3 i {
+    font-size: 1.2em;
+}
+
+.plan-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.plan-card li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 1.1em;
+}
+
+.plan-card li:last-child {
+    border-bottom: none;
+}
+
+.plan-card li .activity {
+    font-weight: 500;
+}
+
+.plan-card li i {
+    color: #ffc107;
+}
+
+/* Health Tools Section Specifics */
+.health-tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.tool-card h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.4em;
+    color: #2c3e50;
+}
+
+.tool-card input, .tool-card select {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.8);
+    font-size: 1em;
+    outline: none;
+    color: #333;
+}
+
+.tool-card .result {
+    text-align: center;
+    font-weight: 600;
+    color: #28a745;
+    margin-top: 15px;
+}
+
+/* Feedback Section Specifics */
+#feedback .feedback-card {
+    background: rgba(0, 0, 0, 0.5); /* Darker glass for feedback */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #eee;
+}
+
+#feedback form input,
+#feedback form textarea {
+    width: calc(100% - 20px);
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 1em;
+    outline: none;
+}
+
+#feedback form input::placeholder,
+#feedback form textarea::placeholder {
+    color: #aaa;
+}
+
+#feedback form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.submit-feedback-btn {
+    width: 100%;
+}
+
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1002; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.7); /* Black w/ opacity */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: rgba(255, 255, 255, 0.2); /* Glassmorphism background */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    padding: 40px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    color: #fff;
+    text-align: center;
+}
+
+.modal-content h3 {
+    color: #fff;
+    margin-bottom: 25px;
+    font-size: 2em;
+}
+
+.close-btn {
+    color: #aaa;
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: #ffc107;
+    text-decoration: none;
+}
+
+.auth-tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    gap: 15px;
+}
+
+.auth-tabs button {
+    background: none;
+    border: none;
+    color: #ccc;
+    font-size: 1.2em;
+    font-weight: 500;
+    padding: 10px 20px;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.auth-tabs button.active {
+    color: #ffc107;
+}
+
+.auth-tabs button::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: #ffc107;
+    transition: width 0.3s ease;
+}
+
+.auth-tabs button.active::after {
+    width: 100%;
+}
+
+.form-container {
+    display: none;
+}
+
+.form-container.active {
+    display: block;
+}
+
+#login-form input,
+#signup-form input {
+    width: calc(100% - 30px);
+    padding: 12px 15px;
+    margin-bottom: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 1em;
+    outline: none;
+}
+
+#login-form input::placeholder,
+#signup-form input::placeholder {
+    color: #aaa;
+}
+
+#login-form button,
+#signup-form button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1em;
+    margin-top: 10px;
+}
+
+.error-message {
+    color: #ff6b6b;
+    margin-top: 10px;
+    font-size: 0.9em;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .hero h1 {
+        font-size: 3em;
+    }
+
+    .hero p {
+        font-size: 1.2em;
+    }
+
+    .daily-plan-grid, .health-tools-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .habit-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .habit-name {
+        margin-bottom: 10px;
+    }
+
+    .remove-habit-btn {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul {
+        margin-top: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .logo {
+        margin-bottom: 10px;
+    }
+
+    .hero {
+        height: 70vh;
+        padding: 0 20px;
+    }
+
+    .hero h1 {
+        font-size: 2.5em;
+    }
+
+    .hero p {
+        font-size: 1em;
+    }
+
+    .content-section {
+        padding: 40px 0;
+    }
+
+    .content-section .container {
+        padding: 20px;
+    }
+
+    .glass-card {
+        padding: 20px;
+    }
+
+    #about ul {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    nav ul {
+        gap: 10px;
+    }
+    nav a {
+        font-size: 14px;
+    }
+    .hero h1 {
+        font-size: 2em;
+    }
+    .hero p {
+        font-size: 0.9em;
+    }
+    .start-tracking-btn, .btn {
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+    .habit-input {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .habit-input button, .habit-input select {
+        width: 100%;
+        margin-top: 10px;
+    }
+    .habit-days {
+        justify-content: center;
+    }
+}
