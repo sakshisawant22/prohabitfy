@@ -399,33 +399,33 @@ graph TD
 -  This specific flowchart focuses on the logic behind one of the integrated wellness tools, demonstrating input validation and calculation.
 
 ```mermaid
-
 graph TD
     A[Start BMI Calculation] --> B{User Navigates to BMI Calculator}
-    B --> C[Display Input Fields - Height, Weight]
-    C --> D{User Enters Height & Weight}
-    D --> E{Validate Inputs - Are they Numeric and within Range?}
+    B --> C[Display Input Fields - Height and Weight]
+    C --> D{User Enters Height and Weight}
+    D --> E{Validate Inputs - Are they numeric and within range?}
 
-    E -- No (Invalid Input) --> F[Display Error Message - Invalid input, enter valid numbers]
+    E -- No (Invalid Input) --> F[Show Error Message - Enter valid numbers]
     F --> C
 
-    E -- Yes (Valid Input) --> G[Convert to Standard Units (e.g., lbs to kg, inches to cm)]
-    G --> H[Calculate BMI = Weight (kg) / (Height (m))^2]
+    E -- Yes (Valid Input) --> G[Convert to Standard Units - example lbs to kg or inches to cm]
+    G --> H[Calculate BMI = Weight in kg / (Height in meters)^2]
     H --> I[Determine BMI Category]
 
-    I -- BMI < 18.5 --> J[Category - Underweight]
-    I -- 18.5 <= BMI < 24.9 --> K[Category - Normal Weight]
-    I -- 25.0 <= BMI < 29.9 --> L[Category - Overweight]
-    I -- BMI >= 30.0 --> M[Category - Obese]
+    I -- BMI less than 18.5 --> J[Category - Underweight]
+    I -- 18.5 to 24.9 --> K[Category - Normal Weight]
+    I -- 25.0 to 29.9 --> L[Category - Overweight]
+    I -- 30.0 or more --> M[Category - Obese]
 
     J --> N[Display Result - BMI Value and Category]
     K --> N
     L --> N
     M --> N
 
-    N --> O{User Action?}
+    N --> O{Next Action?}
     O -- Recalculate --> C
     O -- Back to Tools Menu --> P[End BMI Calculation / Return to Tools]
+
 
 ```
 
