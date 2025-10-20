@@ -400,32 +400,30 @@ graph TD
 
 ```mermaid
 graph TD
-    A[Start BMI Calculation] --> B{User Navigates to BMI Calculator}
-    B --> C[Display Input Fields - Height and Weight]
-    C --> D{User Enters Height and Weight}
-    D --> E{Validate Inputs - Are they numeric and within range?}
+    A[Start] --> B(Input weight and height from user);
+    B --> C{Choose measurement system};
 
-    E -- No (Invalid Input) --> F[Show Error Message - Enter valid numbers]
-    F --> C
+    C -- Metric --> D[Input Weight in kg and Height in m];
+    C -- Imperial --> E[Input Weight in lbs and Height in in];
 
-    E -- Yes (Valid Input) --> G[Convert to Standard Units - example lbs to kg or inches to cm]
-    G --> H[Calculate BMI = Weight in kg / (Height in meters)^2]
-    H --> I[Determine BMI Category]
+    D --> F{Calculate BMI: Metric};
+    F[Calculate BMI: $BMI = \text{Weight} (kg) / (\text{Height} (m))^2$] --> H;
 
-    I -- BMI less than 18.5 --> J[Category - Underweight]
-    I -- 18.5 to 24.9 --> K[Category - Normal Weight]
-    I -- 25.0 to 29.9 --> L[Category - Overweight]
-    I -- 30.0 or more --> M[Category - Obese]
+    E --> G{Calculate BMI: Imperial};
+    G[Calculate BMI: $BMI = \text{Weight} (lbs) / (\text{Height} (in))^2 \times 703$] --> H;
 
-    J --> N[Display Result - BMI Value and Category]
-    K --> N
-    L --> N
-    M --> N
+    H((BMI Value)) --> I{Categorize BMI};
+    
+    I -- BMI < 18.5 --> J[Result: Underweight];
+    I -- 18.5 ≤ BMI < 25.0 --> K[Result: Healthy Weight];
+    I -- 25.0 ≤ BMI < 30.0 --> L[Result: Overweight];
+    I -- BMI ≥ 30.0 --> M[Result: Obesity];
 
-    N --> O{Next Action?}
-    O -- Recalculate --> C
-    O -- Back to Tools Menu --> P[End BMI Calculation / Return to Tools]
-
+    J --> N[Display Result];
+    K --> N;
+    L --> N;
+    M --> N;
+    N --> O[End];
 
 ```
 
